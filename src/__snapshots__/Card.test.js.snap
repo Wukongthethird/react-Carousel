@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Displays Card on DOM 1`] = `
+<div>
+  <div
+    class="Card"
+  >
+    <h4
+      class="Card-title"
+    >
+      Rithm
+    </h4>
+    <img
+      alt="Rithm"
+      class="Card-image"
+      src="School"
+    />
+    <small
+      class="Card-small"
+    >
+      Image 
+      1
+       of 
+      4
+      .
+    </small>
+  </div>
+</div>
+`;
