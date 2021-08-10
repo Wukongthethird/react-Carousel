@@ -27,3 +27,24 @@ it("works when you click on the right arrow", function() {
   expect(container).toMatchSnapshot();
 });
 
+it("works when you click on the left arrow", function() {
+  const { container } = render(<Carousel />);
+  // move from card 1 to card 2
+  fireEvent.click(container.querySelector(".fa-chevron-circle-right"));
+  // move from card 2 back to card 1
+  fireEvent.click(container.querySelector(".fa-chevron-circle-left"));
+  expect(
+    container.querySelector('img[alt="Photo by Richard Pasquarella on Unsplash"]')).toBeInTheDocument();;
+  // expect(container.querySelector(".Card-small")).toContainHTML("Image 1");
+});
+
+it("respective arrows are missing for first and last images", function() {
+  const { container } = render(<Carousel />);
+  expect(container.querySelector(".Carousel-main > i")).toHaveClass("hidden");
+
+  // move from card 1 to card 2, and then 2 to 3
+  fireEvent.click(container.querySelector(".fa-chevron-circle-right"));
+  fireEvent.click(container.querySelector(".fa-chevron-circle-right"));
+  expect(container.querySelectorAll(".Carousel-main > i")[1]).toHaveClass("hidden");
+});
+
